@@ -1,0 +1,22 @@
+body{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    text-align: center;
+    justify-content: center;
+    background-color: rgb(236, 203, 59);
+    font-size: 20px;
+}
+.about{
+    margin-top: 15%;
+    padding: 10px;
+}
+
+.home-button{
+    height: 32px;
+    border: solid black 1px;
+    border-radius: 5px;
+    font-size: 18px;
+    padding: 2px 5px ;
+}
+

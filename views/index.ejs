@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/main.css">
+    <title>Weather</title>
+</head>
+<body>
+<div class="nav-bar-grid">
+    <div class="nav-bar">
+        <a href="/" ><div class="nav-item">Home</div></a>
+        <a href="/about" ><div class="nav-item">About</div></a>
+        <a href="/feedback" ><div class="nav-item">Feedback</div></a>
+    </div>
+    <div>
+        <form method="post">
+        <input type="text" id="search-box" placeholder="Enter City" name="city" required>
+        <button class="search-button" formaction="/city"  type="submit">Search</i></button>
+    </form>
+    </div>
+</div>
+<div class="body-grid">
+    <div class="body-left">
+        <div class="weather">
+            <div class="city-name">
+                <p><%= content.name %></p>
+            </div>
+            <p class="weather-element">Min-temp  <%= content.main.temp_min %>°C</p>
+            <p class="weather-element">Max-temp  <%= content.main.temp_max %>°C</p>
+            <p class="weather-element">Wind-Speed <%= content.wind.speed %>m/s</p>
+            <% let date = new Date(content.sys.sunrise*1000) %>
+            <p class="weather-element">Sun-rise   <%=date.getHours()%>:<%=date.getMinutes()%></p>
+            <% date = new Date(content.sys.sunset*1000) %>
+            <p class="weather-element">Sun-set  <%=date.getHours()%>:<%=date.getMinutes()%></p>
+        </div>
+    </div>
+    <div class="body-right">
+        <img src="../public/photos/sun-image.png" alt="">
+    </div>
+</div>
+
+<% if(locals.forcastContent) {%>
+<div class="forcast">
+    <% let URL = ""; %>
+    <% for(let i=7;i<40;i=i+8){%>
+        <% URL = "https://openweathermap.org/img/wn/"+forcastContent.list[i].weather[0].icon+"@2x.png"%>
+       <div class="forcast-element" style="background-image: url(<%=URL%>);"><p><%=forcastContent.list[i].main.temp_max%>/</p><%=forcastContent.list[i].main.temp_min%></div>
+    <%}%>
+</div>
+<% } %>
+
+<div class="footer">
+    Made with love in ❤️Jalandhar.
+</div>
+</body>
+</html>
