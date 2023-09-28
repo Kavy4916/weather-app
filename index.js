@@ -4,7 +4,7 @@ import bodyParser from "body-parser";
 
 const PORT = process.env.PORT || 5000;
 const app = express();
-const apiKey = "";
+const apiKey = "444e7c0c630bc8af57e6a78570203112";
 const url = "api.openweathermap.org/data/2.5/forecast/";
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({extended: true}));
